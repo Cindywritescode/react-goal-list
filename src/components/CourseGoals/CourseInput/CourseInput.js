@@ -53,7 +53,7 @@ const CourseInput = ({ onAddGoal }) => {
   return (
     <form onSubmit={formSubmitHandler}>
       <FormControl invalid={!isValid}>
-        <label>Course Goal</label>
+        <label>Goal for Today</label>
         <input type="text"
                onChange={goalInputChangeHandler}/>
       </FormControl>
