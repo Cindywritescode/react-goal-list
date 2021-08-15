@@ -30,7 +30,9 @@ const FormControl = styled.div`
   }
 `;
 
-const CourseInput = ({ onAddGoal }) => {
+const CourseInput = ({
+  onAddGoal
+}) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [isValid, setIsValid] = useState(true);
 
@@ -48,6 +50,7 @@ const CourseInput = ({ onAddGoal }) => {
       return;
     }
     onAddGoal(enteredValue);
+    setEnteredValue('')
   };
 
   return (
@@ -55,7 +58,9 @@ const CourseInput = ({ onAddGoal }) => {
       <FormControl invalid={!isValid}>
         <label>Goal for Today</label>
         <input type="text"
-               onChange={goalInputChangeHandler}/>
+               onChange={goalInputChangeHandler}
+               value={enteredValue}
+        />
       </FormControl>
       <Button type="submit">Add Goal</Button>
     </form>
