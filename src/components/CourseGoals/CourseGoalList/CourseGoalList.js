@@ -1,23 +1,30 @@
 import React from 'react';
 
 import CourseGoalItem from '../CourseGoalItem/CourseGoalItem';
-import './CourseGoalList.css';
+import styled from 'styled-components';
 
+const GoalList = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`;
 
-
-const CourseGoalList = props => {
+const CourseGoalList = ({
+  items,
+  onDeleteItem
+}) => {
   return (
-    <ul className="goal-list">
-      {props.items.map(goal => (
+    <GoalList>
+      {items.map(goal => (
         <CourseGoalItem
           key={goal.id}
           id={goal.id}
-          onDelete={props.onDeleteItem}
+          onDelete={onDeleteItem}
         >
           {goal.text}
         </CourseGoalItem>
       ))}
-    </ul>
+    </GoalList>
   );
 };
 
